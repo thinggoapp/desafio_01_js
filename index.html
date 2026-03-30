@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafío Condiciones</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <h2>Ejercicio 1</h2>
+      <img
+        id="imagen-borde"
+        src="https://placedog.net/400/300"
+        alt="Imagen principal"
+      />
+    </section>
+
+    <section>
+      <h2>Ejercicio 2</h2>
+      <div class="stickers">
+        <div class="sticker-item">
+          <img src="https://placedog.net/200/200?id=1" alt="Sticker 1" />
+          <input id="sticker1" type="number" min="0" value="0" />
+        </div>
+
+        <div class="sticker-item">
+          <img src="https://placedog.net/200/200?id=2" alt="Sticker 2" />
+          <input id="sticker2" type="number" min="0" value="0" />
+        </div>
+
+        <div class="sticker-item">
+          <img src="https://placedog.net/200/200?id=3" alt="Sticker 3" />
+          <input id="sticker3" type="number" min="0" value="0" />
+        </div>
+      </div>
+
+      <button onclick="calcularStickers()">Verificar stickers</button>
+      <p id="resultado-stickers"></p>
+    </section>
+
+    <section>
+      <h2>Ejercicio 3</h2>
+
+      <select id="digito1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+
+      <select id="digito2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+
+      <select id="digito3">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+
+      <button onclick="verificarPassword()">Ingresar</button>
+      <p id="resultado-password"></p>
+    </section>
+
+    <script>
+      const imagen = document.querySelector("#imagen-borde");
+
+      imagen.addEventListener("click", function () {
+        if (imagen.style.border === "20px solid red") {
+          imagen.style.border = "none";
+        } else {
+          imagen.style.border = "20px solid red";
+        }
+      });
+
+      function calcularStickers() {
+        const sticker1 = Number(document.querySelector("#sticker1").value);
+        const sticker2 = Number(document.querySelector("#sticker2").value);
+        const sticker3 = Number(document.querySelector("#sticker3").value);
+
+        const total = sticker1 + sticker2 + sticker3;
+        const resultado = document.querySelector("#resultado-stickers");
+
+        if (total <= 10) {
+          resultado.innerHTML = "Llevas " + total + " stickers";
+        } else {
+          resultado.innerHTML = "Llevas demasiados stickers";
+        }
+      }
+
+      function verificarPassword() {
+        const digito1 = document.querySelector("#digito1").value;
+        const digito2 = document.querySelector("#digito2").value;
+        const digito3 = document.querySelector("#digito3").value;
+
+        const password = digito1 + digito2 + digito3;
+        const resultado = document.querySelector("#resultado-password");
+
+        if (password === "911") {
+          resultado.innerHTML = "password 1 correcto";
+        } else if (password === "714") {
+          resultado.innerHTML = "password 2 correcto";
+        } else {
+          resultado.innerHTML = "password incorrecto";
+        }
+      }
+    </script>
+  </body>
+</html>
